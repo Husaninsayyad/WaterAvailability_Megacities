@@ -6,6 +6,9 @@ library(ggplot2)
 library(trend)
 library(patchwork)
 
+data <- readRDS("data/data_final.rds")
+combined_source_data <- readRDS("data/combined_source_data.rds")
+
 # W trend when P and AET are from the same source (TerraClimate or ERA5-Land)
 w_trend_same_source <- function(df_source, label) {
   df_source %>%
