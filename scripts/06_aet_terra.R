@@ -13,7 +13,7 @@ library(cowplot)
 sf::sf_use_s2(TRUE)
 
 # Data TerraClimate 
-data_terra <- data1 %>%
+data_terra <- combined_source_data %>%
   filter(data_source == "terraclimate")
 
 trend_terra <- data_terra %>%

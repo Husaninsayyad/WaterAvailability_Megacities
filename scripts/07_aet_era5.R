@@ -13,7 +13,7 @@ library(cowplot)
 sf::sf_use_s2(TRUE)
 
 # Data Era-5land
-data_era <- data1 %>%
+data_era <- combined_source_data %>%
   filter(data_source == "era5-land")
 
 trend_era <- data_era %>%
