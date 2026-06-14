@@ -13,15 +13,15 @@ library(gridExtra)
 library(cowplot)
 
 # mswep and gleam are combined into one source since gleam provides AET and mswep provides P
-data1 <- data %>%
+combined_source_data <- data %>%
   mutate(data_source = ifelse(data_source %in% c("mswep-v2-8", "gleam-v4-1a"),
                               "mswep/gleam",
                               data_source))
 
-unique(data1$data_source)
-unique(data1$variable)
+unique(combined_source_data$data_source)
+unique(combined_source_data$variable)
 
-data_wide <- data1 %>% pivot_wider(names_from = variable, values_from = value)
+data_wide <- combined_source_data %>% pivot_wider(names_from = variable, values_from = value)
 
 data_mswepGleam <- data_wide %>%
   filter(data_source == "mswep/gleam") %>%

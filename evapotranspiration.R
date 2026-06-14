@@ -26,7 +26,7 @@ trend_terra <- data_terra %>%
 
 # Evapotranspiration (e) only
 terra_e <- trend_terra %>% filter(variable == "e")
-
+summary(terra_e$Trend)
 # World map + continent mapping (sf-only nearest) 
 world <- ne_countries(scale = "medium", returnclass = "sf")
 
@@ -205,12 +205,12 @@ dummy_fill <- ggplot() +
   scale_fill_manual(
     values = trend_colors,
     limits = trend_labels_pos_first,
-    labels = c("2.50 – 4.92",              # just the legend text
+    labels = c("2.50 – 4.57",              # just the legend text
                "1 – 2.50",
                "0 – 1.0",
                "0 – -1.0",
                "-1 – -2.50",
-               "-2.50 – -2.68"),
+               "-2.50 – -2.94"),
     drop = FALSE, na.translate = FALSE,
     name = "Trend (mm/year)"
   ) +
@@ -554,12 +554,12 @@ dummy_fill <- ggplot() +
   scale_fill_manual(
     values = trend_colors,
     limits = trend_labels_pos_first,
-    labels = c("2.50 – 8.89",              # just the legend text
+    labels = c("2.50 – 4.97",              # just the legend text
                "1 – 2.50",
                "0 – 1.0",
                "0 – -1.0",
                "-1 – -2.50",
-               "-2.50 – -5.50"),
+               "-2.50 – -6.17"),
     drop = FALSE, na.translate = FALSE,
     name = "Trend (mm/year)"
   ) +
@@ -899,12 +899,12 @@ dummy_fill <- ggplot() +
   scale_fill_manual(
     values = trend_colors,
     limits = trend_labels_pos_first,
-    labels = c("2.50 – 8.07",              # just the legend text
+    labels = c("2.50 – 8.5",              # just the legend text
                "1 – 2.50",
                "0 – 1.0",
                "0 – -1.0",
                "-1 – -2.50",
-               "-2.50 – -3.33"),
+               "-2.50 – -4.5"),
     drop = FALSE, na.translate = FALSE,
     name = "Trend (mm/year)"
   ) +
@@ -943,7 +943,7 @@ make_key_grob <- function(triangle_fill = "white",
                           show_star = FALSE,
                           label_text = "",
                           tri_pch = 24,
-                          base_pt = 7) {
+                           base_pt = 7) {
   x <- unit(0.08, "npc"); y <- unit(0.5, "npc")
   tri <- pointsGrob(x = x, y = y, pch = tri_pch,
                     gp = gpar(col = "black", fill = triangle_fill, fontsize = base_pt * 2))
