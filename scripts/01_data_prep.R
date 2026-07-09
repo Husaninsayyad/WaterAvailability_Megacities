@@ -37,6 +37,9 @@ combined_source_data <- data %>%
 #saving RDS to use in later scripts 
 saveRDS(combined_source_data, "data/combined_source_data.rds")
 
+#make sure to have merged data source (mswep/gleam)
 unique(combined_source_data$data_source)
+
+#make sure you have each variable (e, pet, tp) in each data source 
 combined_source_data %>% distinct(data_source, variable)
 
